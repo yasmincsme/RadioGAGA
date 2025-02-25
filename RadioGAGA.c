@@ -3,7 +3,6 @@
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
 
-// Definições das notas musicais
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -99,7 +98,7 @@
 int tempo = 144;
 
 // Pino do buzzer (GPIO do Raspberry Pi Pico)
-const uint buzzer_pin = 15;
+const uint buzzer_pin = 21;
 
 // Melodia do Tetris
 int melody[] = {
