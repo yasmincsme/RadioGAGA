@@ -10,8 +10,9 @@
 #define PADDING 3
 
 #define CENTER_JOYSTICK 2048
-#define MAX_JOYSTICK 4095
-#define MIN_JOYSTICK 0
+#define MIN_JOYSTICK 1800  // Limite para detectar movimento para cima
+#define MAX_JOYSTICK 3200  // Limite para detectar movimento para baixo
+
 
 #define DEBOUNCE_TIME_US 200000
 
