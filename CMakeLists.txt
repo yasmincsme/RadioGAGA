@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(RadioGAGA RadioGAGA.c aux/buzzer.c)
+add_executable(RadioGAGA RadioGAGA.c aux/buzzer.c aux/io_handler aux/ssd1306.c)
 
 pico_set_program_name(RadioGAGA "RadioGAGA")
 pico_set_program_version(RadioGAGA "0.1")
@@ -48,6 +48,9 @@ pico_enable_stdio_usb(RadioGAGA 0)
 target_link_libraries(RadioGAGA
         pico_stdlib
         hardware_pwm
+        hardware_i2c
+        hardware_adc
+        pico_multicore
 )
 
 # Add the standard include files to the build
@@ -57,8 +60,8 @@ target_include_directories(RadioGAGA PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(RadioGAGA 
-        
-        )
+     
+)
 
 pico_add_extra_outputs(RadioGAGA)
 

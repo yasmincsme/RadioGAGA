@@ -98,6 +98,7 @@
 extern int time;
 
 extern int bad_romance[];
+extern int just_dance[];
 
 void play_tone(int frequency, int duration);
 int get_notes(int melody[]);
