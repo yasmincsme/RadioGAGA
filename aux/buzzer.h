@@ -99,6 +99,9 @@ extern int time;
 
 extern int bad_romance[];
 extern int just_dance[];
+extern int bloody_mary[];
+extern int poker_face[];
+extern int paparazzi[];
 
 void play_tone(int frequency, int duration);
 int get_notes(int melody[]);
