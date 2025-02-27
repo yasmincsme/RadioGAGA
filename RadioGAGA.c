@@ -6,6 +6,7 @@
 #include "hardware/pwm.h"
 #include "aux/buzzer.h"
 #include "hardware/i2c.h"
+#include "pico/bootrom.h"
 #include "aux/io_handler.h"
 #include "aux/ssd1306.h"
 
@@ -15,36 +16,74 @@ bool cor = true;
 uint16_t adc_value_x;
 uint16_t adc_value_y; 
 
-int8_t line = 6; // Posição inicial da seta
+// Posição inicial da seta
+int8_t line = 6; 
 
-static volatile int song = 0;
+int8_t song = 0;
 
 // Mapeia as posições das músicas no menu
 const int8_t menu_positions[] = {6, 17, 28, 39, 50};  
 #define MENU_SIZE (sizeof(menu_positions) / sizeof(menu_positions[0]))
 
+static volatile uint32_t last_press_B = 0;
+static volatile uint32_t last_press_PB = 0;
+
 void buzzer_task() {
     while (true) {
-        switch (song) {
-            case 1:
-                play_song(bad_romance);
-                break;
-            case 2:
-                play_song(just_dance);
-                break;
-            case 3:
-                play_song(bloody_mary);
-                break;
-            case 4:
-                play_song(poker_face);
-                break;
-            case 5:
-                play_song(paparazzi);
-                break;
-            default:
-                break;
+        if(song == 1) {
+            song = 0;
+            play_song(bad_romance);  
         }
-        sleep_ms(500);
+        else if(song == 2) {
+            song = 0;
+            play_song(just_dance);    
+        }
+        else if(song == 3) {
+            song = 0;
+            play_song(bloody_mary);   
+        }
+        else if(song == 4) {
+            song = 0;
+            play_song(poker_face);  
+        }
+        else if(song == 5) {
+            song = 0;
+            play_song(paparazzi);  
+        }
+        sleep_ms(500); 
+    }
+}
+
+void gpio_irq_handler(uint gpio, uint32_t events) {
+    uint32_t current_time = to_us_since_boot(get_absolute_time());
+
+    // Verifica se o botão B foi pressionado
+    if (gpio == BUTTON_B && (events & GPIO_IRQ_EDGE_FALL)) {
+        if (current_time - last_press_B > DEBOUNCE_TIME_US) {
+            last_press_B = current_time;
+            reset_usb_boot(0, 0); // Entra no modo de boot USB
+        }
+    } 
+    // Verifica se o botão do joystick foi pressionado
+    else if (gpio == JOYSTICK_PB && (events & GPIO_IRQ_EDGE_FALL)) {
+        if (current_time - last_press_PB > DEBOUNCE_TIME_US) {
+            last_press_PB = current_time;
+            if(line == 6) {
+                song = 1;
+            }
+            else if(line == 17) {
+                song = 2;
+            }
+            else if(line == 28) {
+                song = 3;
+            }
+            else if(line == 39) {
+                song = 4;
+            }
+            else if(line == 50) {
+                song = 5;
+            }
+        }
     }
 }
 
@@ -58,7 +97,8 @@ int main() {
 
     // Interrupção do botão B
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
-    
+    gpio_set_irq_enabled_with_callback(JOYSTICK_PB, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
+
     // Configura o pino do buzzer como saída PWM
     gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
 
@@ -69,9 +109,8 @@ int main() {
     int last_option = -1; // Guarda a última posição para evitar redesenhos desnecessários
 
     while (true) {
-        // Lê valores do joystick
         joystick_read(&adc_value_x, &adc_value_y);
-        printf("Joystick Y: %d\n", adc_value_y); // Debug
+        printf("%d", song);
 
         // Move para cima
         if (adc_value_y > MAX_JOYSTICK) {
@@ -80,6 +119,7 @@ int main() {
             } else {
                 current_option--;
             }
+            sleep_ms(200); // Pequeno delay para evitar movimentação excessiva
         }
         // Move para baixo
         else if (adc_value_y < MIN_JOYSTICK) {
@@ -88,6 +128,7 @@ int main() {
             } else {
                 current_option++;
             }
+            sleep_ms(200);
         }
 
         // Atualiza a posição da seta
@@ -117,9 +158,8 @@ int main() {
             ssd1306_send_data(&ssd);
         }
 
-        sleep_ms(200);
+        sleep_ms(100);
     }
 
     return 0;
 }
-

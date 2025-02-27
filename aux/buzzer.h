@@ -1,6 +1,6 @@
 #ifndef BUZZER_H
 
-#define BUZZER_PIN 21
+#define BUZZER_PIN 10
 
 #define NOTE_B0  31
 #define NOTE_C1  33

@@ -32,17 +32,6 @@ int just_dance[] = {
     NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_A3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_A3, 4, NOTE_G3, 4, NOTE_C4, 4,
     NOTE_D4, 4, NOTE_C4, 4, NOTE_B3, 4, NOTE_G3, 4, NOTE_A3, 4, NOTE_G3, 4, NOTE_C4, 4,
     NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_B3, 4,
-
-    // Refrão
-    NOTE_A3, 4, NOTE_G3, 4,
-    NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4,
-    NOTE_FS3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_G3, 4,
-    NOTE_A3, 4, NOTE_G3, 4,
-    NOTE_G3, 4, NOTE_G3, 4, NOTE_B3, 4, NOTE_B3, 4, NOTE_G3, 4,
-    NOTE_D4, 4, NOTE_D4, 4, NOTE_C4, 4, NOTE_C4, 4, NOTE_B3, 4,
-    NOTE_B3, 4, NOTE_G3, 4,
-    NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4, NOTE_G3, 4,
-    NOTE_FS3, 4, NOTE_FS3, 4, NOTE_FS3, 4, NOTE_G3, 4, NOTE_FS3, 4, NOTE_G3, 4
 };
 
 int bloody_mary[] = {
@@ -58,15 +47,6 @@ int bloody_mary[] = {
     NOTE_E3, 4, NOTE_D3, 4, NOTE_CS3, 2, NOTE_D3, 2, // MI RE DO# RE
     NOTE_E3, 4, NOTE_D3, 4, NOTE_CS3, 2, NOTE_D3, 2, // MI RE DO# RE
     NOTE_E3, 4, NOTE_D3, 4, NOTE_CS3, 2, // MI RE DO#
-
-    // Segunda parte
-    NOTE_AS3, 2, NOTE_AS3, 2, NOTE_AS3, 4, NOTE_C4, 2, NOTE_A3, 4,  // la# la# la# DO la
-    NOTE_AS3, 4, NOTE_A3, 4, NOTE_G3, 2, NOTE_F3, 4, NOTE_G3, 4, // la# la sol fa sol
-    NOTE_E3, 4, NOTE_E3, 4, NOTE_G3, 2, NOTE_A3, 4, NOTE_G3, 4, NOTE_F3, 2, NOTE_D3, 2, // mi mi sol la sol fa re
-
-    NOTE_AS3, 2, NOTE_AS3, 2, NOTE_AS3, 4, NOTE_C4, 2, NOTE_A3, 4,  // la# la# la# DO la
-    NOTE_AS3, 4, NOTE_A3, 4, NOTE_G3, 2, NOTE_F3, 4, NOTE_G3, 4, // la# la sol fa sol
-    NOTE_E3, 4, NOTE_E3, 4, NOTE_G3, 2, NOTE_A3, 4, NOTE_G3, 4, NOTE_F3, 2, NOTE_D3, 2 // mi mi sol la sol fa re
 };
 
 int poker_face[] = {
@@ -81,18 +61,7 @@ int poker_face[] = {
     NOTE_B4, 4, NOTE_AS4, 8, NOTE_FS4, 8, NOTE_B4, 8, NOTE_AS4, 8, NOTE_FS4, 8,
     NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_DS4, 8, NOTE_E4, 8, NOTE_DS4, 8, NOTE_FS4, 8, NOTE_FS4, 8,
     
-    NOTE_B4, 4, NOTE_AS4, 8, NOTE_FS4, 8, NOTE_B4, 8, NOTE_AS4, 8, NOTE_FS4, 8,
-    NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_E4, 8, NOTE_DS4, 8, NOTE_E4, 8, NOTE_DS4, 8, NOTE_FS4, 8, NOTE_FS4, 8,
-    
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8,
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8,
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8,
-    
-    NOTE_GS4, 4, NOTE_DS4, 8, NOTE_D4, 8, NOTE_DS4, 8, NOTE_E4, 8, NOTE_DS4, 8, NOTE_D4, 8, NOTE_DS4, 8,
-    NOTE_E4, 8, NOTE_DS4, 8, NOTE_CS4, 8, NOTE_B3, 8, NOTE_AS3, 8,
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8,
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8,
-    NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8, NOTE_B4, 8
+
 };
 
 int paparazzi[] = {
@@ -113,29 +82,6 @@ int paparazzi[] = {
     NOTE_C4, 4, NOTE_D4, 4, NOTE_F4, 4, NOTE_D4, 4, 
     NOTE_D4, 8, NOTE_D4, 8, NOTE_D4, 8, NOTE_D4, 8, 
     NOTE_C4, 4, NOTE_D4, 4, NOTE_A4, 4, NOTE_F4, 4, 
-
-    NOTE_A4, 4, NOTE_G4, 4, NOTE_A4, 4, NOTE_G4, 4, 
-    NOTE_A4, 8, NOTE_G4, 8, NOTE_A4, 8, 
-    NOTE_G4, 8, NOTE_B4, 4, NOTE_A4, 8, NOTE_G4, 8, 
-    NOTE_A4, 8, NOTE_G4, 8, NOTE_B4, 4, NOTE_A4, 8, NOTE_G4, 8, 
-
-    NOTE_G4, 4, NOTE_G4, 4, NOTE_B4, 4, 
-    NOTE_G4, 4, NOTE_B4, 4, 
-    NOTE_G4, 8, NOTE_A4, 8, NOTE_A4, 8, NOTE_B4, 8, NOTE_C5, 4, 
-    NOTE_F4, 4, NOTE_A4, 4, 
-    NOTE_D4, 4, NOTE_A4, 4, NOTE_G4, 4, 
-
-    NOTE_G4, 4, NOTE_G4, 4, NOTE_B4, 4, 
-    NOTE_G4, 4, NOTE_G4, 4, NOTE_B4, 4, 
-    NOTE_G4, 8, NOTE_G4, 8, 
-    NOTE_A4, 8, NOTE_A4, 8, NOTE_B4, 8, NOTE_C5, 8, 
-    NOTE_F4, 4, NOTE_A4, 4, 
-    NOTE_D4, 4, NOTE_A4, 4, NOTE_G4, 4, 
-
-    NOTE_G4, 8, NOTE_G4, 8, NOTE_G4, 8, 
-    NOTE_C5, 4, NOTE_B4, 4, NOTE_A4, 4, 
-    NOTE_F4, 4, NOTE_C5, 4, 
-    NOTE_C5, 8, NOTE_D5, 8, NOTE_B4, 8, NOTE_G4, 8
 };
 
 
