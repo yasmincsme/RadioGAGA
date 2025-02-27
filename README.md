@@ -37,10 +37,9 @@ O projeto utiliza o joystick da placa bitdoglab para controlar um menu de músic
   <img src="docs/wokwi.png" width="40.4%">
 </p>
 
-
 ## Testes
 
-[Playlist com testes e vídeo de demonstração](https://youtu.be/UFglGplZERQ)
+[Vídeo de demonstração](https://youtu.be/VnwUDhbZ-cA)
 
 ## Instruções de Uso
 
