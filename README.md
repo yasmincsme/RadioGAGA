@@ -31,7 +31,12 @@ O projeto utiliza o joystick da placa bitdoglab para controlar um menu de músic
 - **Reprodução de Músicas via PWM no Buzzer:** As músicas são armazenadas como arrays de frequências e durações, sendo tocadas sequencialmente através da modulação de largura de pulso (PWM) no pino do buzzer.  
 - **Execução Multithreaded com o Core 1:** A reprodução das músicas ocorre em uma thread separada no segundo núcleo do Raspberry Pi Pico, evitando bloqueios na execução do menu.  
 - **Gerenciamento da Variável `song`:** Após iniciar a reprodução de uma música, a variável `song` é zerada apenas após sua execução completa, prevenindo a reprodução contínua ou aleatória de músicas não selecionadas.
-1. **Controle do LED Azul e do LED Vermelho pelos eixos X e Y do Joystick:** Verificar se o LED Azul e o LED Vermelho respondem corretamente ao movimento nos eixos X e Y.
+
+<p align="center">
+  <img src="docs/placa.jpeg" width="50%" style="margin-right: 10px;">
+  <img src="docs/wokwi.png" width="40.4%">
+</p>
+
 
 ## Testes
 
