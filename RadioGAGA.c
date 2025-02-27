@@ -19,7 +19,9 @@ uint16_t adc_value_y;
 // Posição inicial da seta
 int8_t line = 6; 
 
-int8_t song = 0;
+volatile int8_t song = 0;
+
+mutex_t song_mutex;
 
 // Mapeia as posições das músicas no menu
 const int8_t menu_positions[] = {6, 17, 28, 39, 50};  
@@ -31,23 +33,33 @@ static volatile uint32_t last_press_PB = 0;
 void buzzer_task() {
     while (true) {
         if(song == 1) {
+            mutex_enter_blocking(&song_mutex);
             song = 0;
+            mutex_exit(&song_mutex);
             play_song(bad_romance);  
         }
         else if(song == 2) {
+            mutex_enter_blocking(&song_mutex);
             song = 0;
+            mutex_exit(&song_mutex);
             play_song(just_dance);    
         }
         else if(song == 3) {
+            mutex_enter_blocking(&song_mutex);
             song = 0;
+            mutex_exit(&song_mutex);
             play_song(bloody_mary);   
         }
         else if(song == 4) {
+            mutex_enter_blocking(&song_mutex);
             song = 0;
+            mutex_exit(&song_mutex);
             play_song(poker_face);  
         }
         else if(song == 5) {
+            mutex_enter_blocking(&song_mutex);
             song = 0;
+            mutex_exit(&song_mutex);
             play_song(paparazzi);  
         }
         sleep_ms(500); 
@@ -69,19 +81,29 @@ void gpio_irq_handler(uint gpio, uint32_t events) {
         if (current_time - last_press_PB > DEBOUNCE_TIME_US) {
             last_press_PB = current_time;
             if(line == 6) {
+                mutex_enter_blocking(&song_mutex);
                 song = 1;
+                mutex_exit(&song_mutex);
             }
             else if(line == 17) {
+                mutex_enter_blocking(&song_mutex);
                 song = 2;
+                mutex_exit(&song_mutex);
             }
             else if(line == 28) {
+                mutex_enter_blocking(&song_mutex);
                 song = 3;
+                mutex_exit(&song_mutex);
             }
             else if(line == 39) {
+                mutex_enter_blocking(&song_mutex);
                 song = 4;
+                mutex_exit(&song_mutex);
             }
             else if(line == 50) {
+                mutex_enter_blocking(&song_mutex);
                 song = 5;
+                mutex_exit(&song_mutex);
             }
         }
     }
@@ -107,6 +129,8 @@ int main() {
 
     int current_option = 0; // Índice da opção selecionada no menu
     int last_option = -1; // Guarda a última posição para evitar redesenhos desnecessários
+
+    mutex_init(&song_mutex);
 
     while (true) {
         joystick_read(&adc_value_x, &adc_value_y);
